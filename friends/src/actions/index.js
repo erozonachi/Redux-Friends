@@ -1,3 +1,4 @@
+export const LOGGING_IN = `LOGGING_IN`;
 export const FETCHING = `FETCHING`;
 export const SUCCESS = `SUCCESS`;
 export const FAILURE = `FAILURE`;

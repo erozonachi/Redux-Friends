@@ -13,13 +13,15 @@ const initialState = {
 function friendsReducer(state = initialState, action) {
   switch(action.type) {
     case types.FETCHING:
-      return {...state, fetchingFriends: true};
+      return {...initialState, friends: [...state.friends], fetchingFriends: true};
+    case types.LOGGING_IN:
+      return {...initialState, friends: [...state.friends], loggingIn: true};
     case types.SAVING:
-      return {...state, savingFriends: true};
+      return {...initialState, friends: [...state.friends], savingFriends: true};
     case types.UPDATING:
-      return {...state, updatingFriends: true};
+      return {...initialState, friends: [...state.friends], updatingFriends: true};
     case types.DELETING:
-      return {...state, deletingFriends: true};
+      return {...initialState, friends: [...state.friends], deletingFriends: true};
     case types.SUCCESS:
       return {...initialState, friends: action.payload};
     case types.FAILURE:
