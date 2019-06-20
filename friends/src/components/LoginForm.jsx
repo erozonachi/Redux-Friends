@@ -16,7 +16,7 @@ function LoginForm(props) {
         username: usernameInput.current.value,
         password: passwordInput.current.value,
       }
-      props.loginUser(user);
+      props.loginUser(user, props.history);
     }
   }
 

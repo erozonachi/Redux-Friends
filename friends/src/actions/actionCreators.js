@@ -7,12 +7,12 @@ const enrichedAxios = () => axios.create({
   }
 });
 
-export const loginUser = user => dispatch => {
+export const loginUser = (user, navHistory) => dispatch => {
   dispatch({type: types.LOGGING_IN});
   axios.post(`http://localhost:5000/api/login`, user)
   .then(res => {
     localStorage.setItem('accessToken', res.data.payload);
-    dispatch({type: types.SUCCESS});
+    navHistory.push('/');
   })
   .catch(error => dispatch({type: types.FAILURE, payload: {error: error.message}}));
 }
