@@ -43,7 +43,7 @@ function App() {
                 <NewFriendForm {...props} />
               );
             } else {
-              return <Redirect to='login' />
+              return <Redirect to='/' />
             }
           }}
         />
