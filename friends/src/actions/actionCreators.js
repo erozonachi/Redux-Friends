@@ -27,3 +27,14 @@ export const getFriends = () => dispatch => {
     dispatch({type: types.FAILURE, payload: {error: err.message}})
   });
 }
+
+export const addFriend = (newFriend) => dispatch => {
+  dispatch({type: types.SAVING});
+  enrichedAxios().post(url, newFriend)
+  .then(response => {
+    dispatch({type: types.SUCCESS, payload: response.data});
+  })
+  .catch(err => {
+    dispatch({type: types.FAILURE, payload: {error: err.message}})
+  });
+}

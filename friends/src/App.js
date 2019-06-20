@@ -15,14 +15,6 @@ function App() {
     getFriends();
   });
 
-  const handleAddSubmit = (newFriend) => {
-    axios.post(url, newFriend)
-    .then(response => {
-      setFriends(response.data);
-    })
-    .catch(err => setErrorMsg(err.message));
-  }
-
   const handleEditSubmit = (friend, id) => {
     axios.put(`${url}/${id}`, friend)
     .then(response => {
