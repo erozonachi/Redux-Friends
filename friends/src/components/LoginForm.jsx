@@ -12,8 +12,8 @@ function LoginForm(props) {
 
     if (usernameInput.current.value.trim() && passwordInput.current.value.trim()) {
       const user = {
-        username: nameInput.current.value,
-        password: ageInput.current.value,
+        username: usernameInput.current.value,
+        password: passwordInput.current.value,
       }
       props.userLogin(user);
     }
