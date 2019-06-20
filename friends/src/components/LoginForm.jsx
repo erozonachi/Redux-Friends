@@ -1,7 +1,8 @@
 import React from 'react';
 import FormContainer from './NewFriend/StyledComponents/FormContainer';
+import { connect } from 'react-redux';
 
-export default function LoginForm(props) {
+function LoginForm(props) {
 
   const usernameInput = React.createRef();
   const passwordInput = React.createRef();
@@ -33,3 +34,7 @@ export default function LoginForm(props) {
     </FormContainer>
   );
 }
+
+const mapStateToProps = state => ({app: state.appState});
+
+export default connect(mapStateToProps, {})(LoginForm);
