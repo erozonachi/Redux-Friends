@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useEffect, } from 'react';
 import ListItem from './ListItem';
 import FriendsList from './StyledComponents/FriendsList';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getFriends, deleteFriend } from '../../actions'
 
-export default function ListContainer(props) {
+function ListContainer(props) {
+  useEffect(() => {
+    props.getFriends();
+  });
+
   return(
     <FriendsList>
       <h2>Friends List</h2>
       <ul>
-        {props.friends.map(friend => <ListItem 
+        {props.app.friends.map(friend => <ListItem 
           key={`${friend.id}`} 
           friend={friend} 
-          delHandler={props.delHandler}
+          delHandler={props.deleteFriend}
         />)}
       </ul>
     </FriendsList>
   );
 }
 
-ListContainer.propTypes = {
-  friends: PropTypes.arrayOf(PropTypes.object).isRequired,
-  delHandler: PropTypes.func.isRequired,
-};
+const mapStateToProps = state => ({app: state.appState});
+
+export default connect(mapStateToProps, { getFriends, deleteFriend })(ListContainer);

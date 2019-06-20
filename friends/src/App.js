@@ -1,4 +1,4 @@
-import React, { useEffect, } from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, NavLink, Redirect, } from 'react-router-dom';
 import ListContainer from './components/FriendList/ListContainer';
 import NewFriendForm from './components/NewFriend/NewFriendForm';
@@ -6,10 +6,6 @@ import LoginForm from './components/LoginForm';
 import AppContainer from './StyledComponents/AppContainer';
 
 function App() {
-
-  useEffect(() => {
-    //getFriends();
-  });
 
   const getAFriend = (id) => {
     //return friends.filter(friend => friend.id === parseInt(id))[0];
