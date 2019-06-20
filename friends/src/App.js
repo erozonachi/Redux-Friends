@@ -11,14 +11,6 @@ function App() {
     getFriends();
   });
 
-  const handleEditSubmit = (friend, id) => {
-    axios.put(`${url}/${id}`, friend)
-    .then(response => {
-      setFriends(response.data);
-    })
-    .catch(err => setErrorMsg(err.message));
-  }
-
   const handleDelete = (id) => {
     axios.delete(`${url}/${id}`)
     .then(response => {

@@ -38,3 +38,14 @@ export const addFriend = (newFriend) => dispatch => {
     dispatch({type: types.FAILURE, payload: {error: err.message}})
   });
 }
+
+export const editFriend = (friend, id) => dispatch => {
+  dispatch({type: types.UPDATING});
+  enrichedAxios().put(`http://localhost:5000/api/friends/${id}`, friend)
+  .then(response => {
+    dispatch({type: types.SUCCESS, payload: response.data});
+  })
+  .catch(err => {
+    dispatch({type: types.FAILURE, payload: {error: err.message}})
+  });
+}
