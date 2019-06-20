@@ -15,19 +15,6 @@ function App() {
     getFriends();
   });
 
-  function getFriends() {
-
-    axios.get(url)
-    .then(response => {
-      if(JSON.stringify(friends) !== JSON.stringify(response.data)) {
-        setFriends(response.data);
-      }
-    })
-    .catch(err => {
-      setErrorMsg(err.message);
-    });
-  }
-
   const handleAddSubmit = (newFriend) => {
     axios.post(url, newFriend)
     .then(response => {
