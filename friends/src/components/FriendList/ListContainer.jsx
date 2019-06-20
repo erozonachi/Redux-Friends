@@ -7,7 +7,7 @@ import { getFriends, deleteFriend } from '../../actions'
 function ListContainer(props) {
   useEffect(() => {
     props.getFriends();
-  });
+  }, [props]);
 
   return(
     <FriendsList>

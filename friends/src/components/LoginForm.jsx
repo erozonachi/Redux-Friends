@@ -1,6 +1,7 @@
 import React from 'react';
 import FormContainer from './NewFriend/StyledComponents/FormContainer';
 import { connect } from 'react-redux';
+import { loginUser } from '../actions';
 
 function LoginForm(props) {
 
@@ -15,7 +16,7 @@ function LoginForm(props) {
         username: usernameInput.current.value,
         password: passwordInput.current.value,
       }
-      props.userLogin(user);
+      props.loginUser(user);
     }
   }
 
@@ -38,4 +39,4 @@ function LoginForm(props) {
 
 const mapStateToProps = state => ({app: state.appState});
 
-export default connect(mapStateToProps, {})(LoginForm);
+export default connect(mapStateToProps, { loginUser })(LoginForm);
