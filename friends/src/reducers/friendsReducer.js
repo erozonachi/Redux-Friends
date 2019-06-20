@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-export default function(state = initialState, action) {
+function friendsReducer(state = initialState, action) {
   switch(action.type) {
     case types.FETCHING:
       return {...state, fetchingFriends: true};
@@ -24,5 +24,9 @@ export default function(state = initialState, action) {
       return {...initialState, friends: action.payload};
     case types.FAILURE:
       return {...initialState, friends: [...state.friends], error: action.payload.error}
+    default:
+      return state;
   }
 }
+
+export default friendsReducer;
