@@ -6,10 +6,6 @@ import NewFriendForm from './components/NewFriend/NewFriendForm';
 import AppContainer from './StyledComponents/AppContainer';
 
 function App() {
-  const url = `http://localhost:5000/friends`;
-
-  const [friends, setFriends] = useState([]);
-  const [errorMsg, setErrorMsg] = useState(``);
 
   useEffect(() => {
     getFriends();
@@ -38,7 +34,6 @@ function App() {
   return(
     <AppContainer>
       <Router>
-        {errorMsg && <div>{errorMsg}</div>}
         <ul>
           <li><NavLink to='/'>Friends</NavLink></li>
           <li><NavLink to='/new_friend/ '>New Friend</NavLink></li>
