@@ -23,7 +23,7 @@ function friendsReducer(state = initialState, action) {
     case types.DELETING:
       return {...initialState, friends: [...state.friends], deletingFriends: true};
     case types.SUCCESS:
-      return {...initialState, friends: action.payload};
+      return {...initialState, friends: (action.payload || [...state.friends])};
     case types.FAILURE:
       return {...initialState, friends: [...state.friends], error: action.payload.error}
     default:

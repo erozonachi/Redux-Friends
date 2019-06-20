@@ -5,3 +5,5 @@ export const FAILURE = `FAILURE`;
 export const SAVING = `SAVING`;
 export const UPDATING = `UPDATING`;
 export const DELETING = `DELETING`;
+
+export { loginUser } from './actionCreators';
