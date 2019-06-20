@@ -27,6 +27,7 @@ function LoginForm(props) {
           ref={usernameInput} 
           placeholder='Enter Username' />
         <input 
+          type='password'
           ref={passwordInput} 
           placeholder='Enter Password' />
         <button type='submit'>Login</button>
