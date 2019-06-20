@@ -30,7 +30,7 @@ export const getFriends = () => dispatch => {
 
 export const addFriend = (newFriend) => dispatch => {
   dispatch({type: types.SAVING});
-  enrichedAxios().post(url, newFriend)
+  enrichedAxios().post(`http://localhost:5000/api/friends`, newFriend)
   .then(response => {
     dispatch({type: types.SUCCESS, payload: response.data});
   })
@@ -42,6 +42,17 @@ export const addFriend = (newFriend) => dispatch => {
 export const editFriend = (friend, id) => dispatch => {
   dispatch({type: types.UPDATING});
   enrichedAxios().put(`http://localhost:5000/api/friends/${id}`, friend)
+  .then(response => {
+    dispatch({type: types.SUCCESS, payload: response.data});
+  })
+  .catch(err => {
+    dispatch({type: types.FAILURE, payload: {error: err.message}})
+  });
+}
+
+export const deleteFriend = (id) => dispatch => {
+  dispatch({type: types.DELETING});
+  enrichedAxios().delete(`http://localhost:5000/api/friends/${id}`)
   .then(response => {
     dispatch({type: types.SUCCESS, payload: response.data});
   })

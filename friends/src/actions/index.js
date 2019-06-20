@@ -6,4 +6,4 @@ export const SAVING = `SAVING`;
 export const UPDATING = `UPDATING`;
 export const DELETING = `DELETING`;
 
-export { loginUser, getFriends, addFriend, editFriend, } from './actionCreators';
+export { loginUser, getFriends, addFriend, editFriend, deleteFriend, } from './actionCreators';

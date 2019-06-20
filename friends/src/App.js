@@ -11,14 +11,6 @@ function App() {
     getFriends();
   });
 
-  const handleDelete = (id) => {
-    axios.delete(`${url}/${id}`)
-    .then(response => {
-      setFriends(response.data);
-    })
-    .catch(err => setErrorMsg(err.message));
-  }
-
   const getAFriend = (id) => {
     return friends.filter(friend => friend.id === parseInt(id))[0];
   }
