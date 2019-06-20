@@ -24,7 +24,6 @@ function NewFriendForm(props) {
   useEffect(() => {
     nameInput.current.value = initialVals.name;
     ageInput.current.value = initialVals.age;
-    sexInput.current.value = initialVals.sex;
     emailInput.current.value = initialVals.email;
   });
 
@@ -32,11 +31,10 @@ function NewFriendForm(props) {
     event.preventDefault();
 
     if (nameInput.current.value && ageInput.current.value && 
-      emailInput.current.value && sexInput.current.value) {
+      emailInput.current.value) {
       const friend = {
         name: nameInput.current.value,
         age: ageInput.current.value,
-        sex: sexInput.current.value,
         email: emailInput.current.value,
       }
       id? props.editFriend(friend, id) : props.addFriend(friend);
@@ -55,9 +53,6 @@ function NewFriendForm(props) {
         <input 
           ref={ageInput} 
           placeholder='Enter Age' />
-        <input 
-          ref={sexInput} 
-          placeholder='Enter Gender' />
         <input 
           ref={emailInput} 
           placeholder='Enter Email' />

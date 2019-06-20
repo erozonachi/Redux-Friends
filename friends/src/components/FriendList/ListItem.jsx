@@ -13,7 +13,6 @@ export default function ListItem(props) {
       <h3>{props.friend.name}</h3>
       <span><em>Age:&nbsp;</em>{props.friend.age}</span>
       <span><em>Email:&nbsp;</em>{props.friend.email}</span>
-      <span><em>Gender:&nbsp;</em>{props.friend.sex}</span>
       <div>
         <Link to={`/new_friend/${props.friend.id}`}><button>Edit</button></Link>
         <button onClick={handleDelete}>Delete</button>
