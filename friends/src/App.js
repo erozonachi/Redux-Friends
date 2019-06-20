@@ -7,10 +7,6 @@ import AppContainer from './StyledComponents/AppContainer';
 
 function App() {
 
-  const getAFriend = (id) => {
-    //return friends.filter(friend => friend.id === parseInt(id))[0];
-  }
-
   return(
     <AppContainer>
       <Router>

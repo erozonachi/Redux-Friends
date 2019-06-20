@@ -1,7 +1,9 @@
 import React, { useEffect, } from 'react';
 import FormContainer from './StyledComponents/FormContainer';
+import { connect } from 'react-redux';
+import { addFriend, editFriend, } from '../../actions';
 
-export default function NewFriendForm(props) {
+function NewFriendForm(props) {
   let id = props.match.params.id.trim();
   const initialFriendState = {
     name: '',
@@ -9,7 +11,10 @@ export default function NewFriendForm(props) {
     email: '',
     sex: '',
   };
-  const initialVals = (id? props.getFriend(id) : initialFriendState);
+  const getAFriend = (id) => {
+    return props.app.friends.filter(friend => friend.id === parseInt(id))[0];
+  }
+  const initialVals = (id? getAFriend(id) : initialFriendState);
 
   const nameInput = React.createRef();
   const ageInput = React.createRef();
@@ -34,7 +39,7 @@ export default function NewFriendForm(props) {
         sex: sexInput.current.value,
         email: emailInput.current.value,
       }
-      id? props.editSubmitHandler(friend, id) : props.addSubmitHandler(friend);
+      id? props.editFriend(friend, id) : props.addFriend(friend);
       id = null;
       props.history.push('/');
     }
@@ -61,3 +66,7 @@ export default function NewFriendForm(props) {
     </FormContainer>
   );
 }
+
+const mapStateToProps = state => ({app: state.appState});
+
+export default connect(mapStateToProps, { addFriend, editFriend })(NewFriendForm);
