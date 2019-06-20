@@ -1,7 +1,8 @@
-import React, { useState, useEffect, } from 'react';
-import {BrowserRouter as Router, Route, NavLink,} from 'react-router-dom';
+import React, { useEffect, } from 'react';
+import {BrowserRouter as Router, Route, NavLink, Redirect, } from 'react-router-dom';
 import ListContainer from './components/FriendList/ListContainer';
 import NewFriendForm from './components/NewFriend/NewFriendForm';
+import LoginForm from './components/LoginForm';
 import AppContainer from './StyledComponents/AppContainer';
 
 function App() {
@@ -21,16 +22,34 @@ function App() {
           <li><NavLink to='/'>Friends</NavLink></li>
           <li><NavLink to='/new_friend/ '>New Friend</NavLink></li>
         </ul>
-        <Route
+        <Route 
+          exact 
           path='/'
-          exact
-          render={props => <ListContainer {...props} />}
+          render={props => {
+            if (localStorage.getItem('accessToken')) {
+              return (
+                <ListContainer {...props} />
+              );
+            } else {
+              return <Redirect to='login' />
+            }
+          }}
         />
         <Route
           path='/new_friend/:id'
-          render={props => <NewFriendForm
-            {...props} 
-          />}
+          render={props => {
+            if (localStorage.getItem('accessToken')) {
+              return (
+                <NewFriendForm {...props} />
+              );
+            } else {
+              return <Redirect to='login' />
+            }
+          }}
+        />
+        <Route
+          path='/login'
+          render={props => <LoginForm {...props} />}
         />
       </Router>
     </AppContainer>
