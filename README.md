@@ -27,22 +27,22 @@ Topics:
 
 ## Initialize Project
 
-* Run `yarn` or `npm i` inside the root directory of this project to install dependencies.
-* Run `yarn start` or `npm start` to start the API server.
-* Run `create-react-app friends` in a separate terminal window in the root directory of the project to create your starter application.
-* `cd` into the _friends_ folder and type `yarn add redux react-redux redux-thunk redux-logger axios react-router-dom` which will install the needed dependencies.
-* To start out, create a reducer that will be passed as the rootReducer to `createStore`. Start with a pretty simple initialState object that has a `friends` property set as an empty array. Your state tree will grow pretty large as you build out more and more actions.
-* Don't forget to hook up the store using the `Provider` tag inside of `src/index.js`, passing it your newly created store.
-* You will need to use `redux-thunk` as a middleware inside of `src/index.js`. You'll want to be sure to pass it to `applyMiddleware()` then feed it into your createStore function.
-* If you so choose, include `redux-logger` to your middleware. You're going to have plenty of action creators that will consume our API so you'll get plenty of actions triggered.
+* [x] Run `yarn` or `npm i` inside the root directory of this project to install dependencies.
+* [x] Run `yarn start` or `npm start` to start the API server.
+* [x] Run `create-react-app friends` in a separate terminal window in the root directory of the project to create your starter application.
+* [x] `cd` into the _friends_ folder and type `yarn add redux react-redux redux-thunk redux-logger axios react-router-dom` which will install the needed dependencies.
+* [x] To start out, create a reducer that will be passed as the rootReducer to `createStore`. Start with a pretty simple initialState object that has a `friends` property set as an empty array. Your state tree will grow pretty large as you build out more and more actions.
+* [x] Don't forget to hook up the store using the `Provider` tag inside of `src/index.js`, passing it your newly created store.
+* [x] You will need to use `redux-thunk` as a middleware inside of `src/index.js`. You'll want to be sure to pass it to `applyMiddleware()` then feed it into your createStore function.
+* [x] If you so choose, include `redux-logger` to your middleware. You're going to have plenty of action creators that will consume our API so you'll get plenty of actions triggered.
 
 ## Build the App!
-* Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
-* The login action creator should dispatch a "logging in" action, return the promise created by `axios.post`, then save the returned token to localStorage. You can connect your Login component, and show a spinner on your form or in your button while the login request is happening.
-* When the request returns, use the history object in your Login component to navigate your user to your FriendsList route
-* Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
-* Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
-* In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API using React and Redux.
+* [x] Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).
+* [x] The login action creator should dispatch a "logging in" action, return the promise created by `axios.post`, then save the returned token to localStorage. You can connect your Login component, and show a spinner on your form or in your button while the login request is happening.
+* [x] When the request returns, use the history object in your Login component to navigate your user to your FriendsList route
+* [x] Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
+* [x] Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
+* [x] In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API using React and Redux.
 
 ## Root Reducer and our State Tree
 
@@ -80,6 +80,6 @@ Topics:
 
 ## Stretch Problem
 
-* In the requirements for this project, we implemented a login POST operation, a GET operation, and a "add friend" POST operation. Add two more actions, one for making a PUT request, and the other for making a DELETE request.
-* Style the friends list and the input field and make everything look nice.
+* [x] In the requirements for this project, we implemented a login POST operation, a GET operation, and a "add friend" POST operation. Add two more actions, one for making a PUT request, and the other for making a DELETE request.
+* [x] Style the friends list and the input field and make everything look nice.
 * Expand the number of properties that you put on each friend object. Feel free to remove the dummy data on the server or modify it in any way.
